@@ -7,7 +7,10 @@ pipeline{
 			}
 		}
 		stage("Run Test"){
+			steps{
 			sh "docker-compose up book-flight-module"
+			}
+		}
 		stage("Bring docker down"){
 			steps{
 				sh "docker-compose down"
