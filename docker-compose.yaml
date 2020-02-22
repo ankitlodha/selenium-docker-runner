@@ -17,17 +17,6 @@ services:
       - hub
     environment:
       - HUB_HOST=hub
-  search-module:
-    image: ankitlodha511/selenium-docker
-    depends_on:
-      - chrome
-      - firefox
-    environment:
-      - BROWSER=firefox
-      - HUB_HOST=hub
-      - MODULE=search-module.xml
-    volumes:
-      - ./search-result:/usr/share/udemy/test-output
   book-flight-module:
     image: ankitlodha511/selenium-docker
     depends_on:
