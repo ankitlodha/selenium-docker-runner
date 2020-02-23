@@ -11,10 +11,11 @@ pipeline{
 			sh "docker-compose up book-flight-module"
 			}
 		}
-		stage("Bring docker down"){
-			steps{
-				sh "docker-compose down"
-			}
+	}
+	post{
+		always{
+			archiveArtifacts artifacts: output/**
+			sh "docker-compose down"
 		}
 	}
 }
